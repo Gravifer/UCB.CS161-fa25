@@ -1,0 +1,33 @@
+stop
+
+# b  86
+# b  91
+# b  96
+# b 101
+b 106
+
+alias peek = x/40wx
+alias stack = x/40wx $sp
+alias bufend = x/20wx $sp + 0xf0
+
+start
+run
+
+# layout split
+# refresh
+
+p $sp
+x/12wx $sp
+frame 1
+p $sp
+x/20wx $sp - 0x40
+frame 0
+
+n
+
+p $sp
+x/12wx $sp
+frame 1
+p $sp
+x/20wx $sp - 0x40
+frame 0

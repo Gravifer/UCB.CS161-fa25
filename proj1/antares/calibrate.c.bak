@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include <string.h>
+
+void calibrate(char *buf) { // $sp = 0xffffdb70
+    FILE *f;
+
+    printf("Input calibration parameters:\n");
+    fgets(buf, 128, stdin);
+    printf("Calibration parameters received:\n");
+    printf(buf); // $sp = 0xffffdb5c
+    f = fopen("params.txt", "w");
+    fputs(buf, f);
+    fclose(f);
+}
+
+int main(int argc, char **argv ) { // $sp = 0xffffdb90
+    // (char[]*)argv = 0xffffdcb4 // (char[])argv[1] = 0xffffddc8 <SHELLCODE>
+    char buf[128]; // 0xffffdba0
+    calibrate(buf);
+    return 0;
+}

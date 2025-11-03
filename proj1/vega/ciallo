@@ -1,0 +1,7 @@
+refresh
+layout split
+b 11
+b 19
+start
+alias peg = p environ[4]
+alias prg = p argv[1]

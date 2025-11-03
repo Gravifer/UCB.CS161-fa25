@@ -1,0 +1,44 @@
+┌─calibrate.c───────────────────────────────────────────────────────────────────┐
+│        5      FILE *f;                                                        │
+│        6                                                                      │
+│        7      printf("Input calibration parameters:\n");                      │
+│B+      8      fgets(buf, 128, stdin);                                         │
+│        9      printf("Calibration parameters received:\n");                   │
+│B+>    10      printf(buf);                                                    │
+│       11      f = fopen("params.txt", "w");                                   │
+│       12      fputs(buf, f);                                                  │
+│b+     13      fclose(f);                                                      │
+│       14  }                                                                   │
+│       15                                                                      │
+│       16  int main(int argc, char **argv) {                                   │
+┌───────────────────────────────────────────────────────────────────────────────┐
+│    0x8049217 <calibrate+50>        push   $0x804e020                          │
+│    0x804921c <calibrate+55>        call   0x8049ae8 <puts>                    │
+│    0x8049221 <calibrate+60>        add    $0x10,%esp                          │
+│B+  0x8049224 <calibrate+63>        sub    $0xc,%esp                           │
+│    0x8049227 <calibrate+66>        push   0x8(%ebp)                           │
+│    0x804922a <calibrate+69>        call   0x8049abe <printf>                  │
+│  > 0x804922f <calibrate+74>        add    $0x10,%esp                          │
+│    0x8049232 <calibrate+77>        sub    $0x8,%esp                           │
+│    0x8049235 <calibrate+80>        push   $0x804e041                          │
+│    0x804923a <calibrate+85>        push   $0x804e043                          │
+│    0x804923f <calibrate+90>        call   0x804984d <fopen>                   │
+│    0x8049244 <calibrate+95>        add    $0x10,%esp                          │
+│    0x8049247 <calibrate+98>        mov    %eax,-0xc(%ebp)                     │
+└───────────────────────────────────────────────────────────────────────────────┘
+native process 6865 In: calibrate                            L10   PC: 0x804922f
+(gdb) targ
+0xffffdb50:     0x0804ffe8      0xffffdcb4      0x00000002      0x0804922f
+0xffffdb60:     0xffffdba0      0x00000080      0x08050020      0x080493c5
+0xffffdb70:     0x00000000      0x00000000      0x00000001      0x00000000
+0xffffdb80:     0x00000002      0x00000000      0xffffdc28      0x0804928f
+0xffffdb90:     0xffffdba0      0x08048034      0x00000020      0x00000008
+0xffffdba0:     0x41414141      0x5f5f5f5f      0x41414141      0x5f5f5f5f
+0xffffdbb0:     0x25753025      0x30256e68      0x6e682575      0x0000000a
+0xffffdbc0:     0x000003ee      0xffffddab      0x078bfbfd      0x00000064
+0xffffdbd0:     0x00000000      0x00000000      0x00000000      0x00000000
+0xffffdbe0:     0x00000000      0x00000001      0x00000000      0xffffdd9b
+(gdb) frame 1
+#1  0x0804922f in calibrate (buf=0xffffdba0 "AAAA____AAAA____%0u%hn%0u%hn\n")
+    at calibrate.c:10
+(gdb)

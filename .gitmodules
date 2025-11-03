@@ -1,0 +1,3 @@
+[submodule "proj2"]
+	path = proj2
+	url = https://github.com/Gravifer/UCB.CS161-proj2.git

