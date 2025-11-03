@@ -7,5 +7,100 @@
 			"path": "../proj2"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"material-icon-theme.files.customClones": [
+			{
+				"name": "go-unittest",
+				"base": "go",
+				"color": "teal-400",
+				"lightColor": "teal-A800",
+				"fileNames": ["client_unittest.go"]
+			},
+			{
+				"name": "go-integrationtest",
+				"base": "go",
+				"color": "teal-A700",
+				"lightColor": "teal-400",
+				"fileNames": ["client_test.go"]
+			}
+		],
+		"material-icon-theme.folders.customClones": [
+			{
+				"name": "client-test",
+				"base": "test",
+				"color": "teal-A700",
+				"lightColor": "teal-400",
+				"folderNames": ["client_test"],
+				"rootFolderNames": ["client_test"]
+			}
+		],
+		"files.exclude": {
+			"**/.git": false,
+			"**/.svn": true,
+			"**/.hg": true,
+			"**/.DS_Store": true,
+			"**/Thumbs.db": true,
+			"**/.gitattributes": true,
+			"**/.gitignore": false,
+			"**/.gitmodules": true,
+			"**/app.json": true,
+			"**/babel.config.js": true,
+			"**/CVS": true,
+			"**/Cargo.toml": true,
+			"**/.circleci": true,
+			"**/.classpath": true,
+			"**/CMakeLists.txt": true,
+			"**/.codecov.yml": true,
+			"**/.conda": true,
+			"**/conda-environment.yml": true,
+			"**/*.crswap": true,
+			"**/.deepsource.toml": true,
+			"**/desktop.ini": true,
+			"**/.editorconfig": true,
+			"**/.expo-shared": true,
+			"**/.factorypath": true,
+			"**/.github": true,
+			"**/.history": true,
+			"**/hooks": true,
+			"**/.ipynb_checkpoints": true,
+			"**/.JuliaFormatter.toml": true,
+			"**/.licrc": true,
+			"**/LICENSE": true,
+			"**/*.lock": true,
+			"**/.metals": true,
+			"**/misc": true,
+			"**/Manifest.toml": true,
+			"**/node_modules": true,
+			"**/*.olean": true,
+			"**/package.json": true,
+			"**/package-lock.json": true,
+			"**/pnpm-lock.yaml": true,
+			"**/pnpm-workspace.yaml": true,
+			"**/playwright.config.ts": true,
+			"**/pom.xml": true,
+			"**/Procfile": true,
+			"**/.project": true,
+			"**/Project.toml": true,
+			"**/__pycache__": true,
+			"**/README.md": false,
+			"**/README.ipynb": true,
+			"**/renovate.json": true,
+			"**/.ruby-lsp": true,
+			"**/.settings": true,
+			"**/setup.py": true,
+			"**/submodules": true,
+			"**/target": true,
+			"**/test": true,
+			"**/tsconfig.json": true,
+			"*.tsx": true,
+			"**/.vscode": false,
+			"**/.wakatime-project": true,
+			"CHANGELOG.md": true
+		}
+	},
+	"extensions": {
+		"recommendations": [
+			"golang.go"
+		]
+	}
 }
