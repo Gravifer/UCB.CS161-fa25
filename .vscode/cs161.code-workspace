@@ -96,7 +96,8 @@
 			"**/.vscode": false,
 			"**/.wakatime-project": true,
 			"CHANGELOG.md": true
-		}
+		},
+		"hide-files.files": []
 	},
 	"extensions": {
 		"recommendations": [
